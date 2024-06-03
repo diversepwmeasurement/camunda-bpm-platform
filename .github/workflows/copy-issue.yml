@@ -1,18 +1,10 @@
-name: Copy issue
-
-on: 
-  workflow_dispatch:
-    inputs:
-      issue:
-        description: 'Number of the issue to copy'
-        required: true
-      version:
-        description: 'The fix version to assign to the new issues (without label prefix)'
-        required: true
-      
 jobs:
   call-reusable-flow:
     uses: camunda/automation-platform-github-actions/.github/workflows/copy-issue.yml@main
-    with: 
+    with:
       issue: ${{ github.event.inputs.issue }}
       version: ${{ github.event.inputs.version }}
+name: Copy issue
+on:
+  repository_dispatch:
+    types: trigger-ga___copy-issue.yml

@@ -1,10 +1,7 @@
-name: Synchronize label colors
-
-on:
-  label:
-    types: 
-      - created
-
 jobs:
   call-reusable-flow:
-    uses: camunda/automation-platform-github-actions/.github/workflows/sync-label-colors.yml@main    
+    uses: camunda/automation-platform-github-actions/.github/workflows/sync-label-colors.yml@main
+name: Synchronize label colors
+on:
+  repository_dispatch:
+    types: trigger-ga___sync-label-colors.yml

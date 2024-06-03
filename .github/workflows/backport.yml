@@ -1,12 +1,8 @@
-name: Backport merged pull request
-
-on:
-  pull_request:
-    types: [closed]
-  issue_comment:
-    types: [created]
-
 jobs:
   call-reusable-flow:
-    uses: camunda/automation-platform-github-actions/.github/workflows/backport.yml@main
     secrets: inherit
+    uses: camunda/automation-platform-github-actions/.github/workflows/backport.yml@main
+name: Backport merged pull request
+on:
+  repository_dispatch:
+    types: trigger-ga___backport.yml
